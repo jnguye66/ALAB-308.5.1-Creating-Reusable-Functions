@@ -33,6 +33,12 @@ function reverseString5(str) {
     return (str === "") ? "" : reverseString5(str.substr(1)) + str.charAt(0);
 }
 
+console.log(reverseString("!dlroW olleH"));
+console.log(reverseString2("!dlroW olleH"));
+console.log(reverseString3("!dlroW olleH"));
+console.log(reverseString4("!dlroW olleH"));
+console.log(reverseString5("!dlroW olleH"));
+
 //////////////////////////////////////////////////////////////////////////
 // Part 1: Thinking Functionally
 
@@ -101,11 +107,76 @@ function recursionCounting(n){
     return;
 }
 
-console.log(reverseString("!dlroW olleH"));
-console.log(reverseString2("!dlroW olleH"));
-console.log(reverseString3("!dlroW olleH"));
-console.log(reverseString4("!dlroW olleH"));
-console.log(reverseString5("!dlroW olleH"));
+//////////////////////////////////////////////////////////////////////////
+// Part 2: Thinking Methodically
+
+// a) Function that sorts age from youngest to oldest
+function sortAge(arr) { 
+    sortedArr = arr.sort((a, b) => a.age - b.age);
+
+    return sortedArr;
+}
+
+// b) Function that filters the array to remove entries with an age greater than 50
+function over50(arr){
+    let temp = [];
+    for (let i = 0; i < arr.length; i++){
+        if (arr[i].age > 50){
+            temp.push(arr[i]);
+        }
+    }
+    return temp;
+}
+
+// c) Function that maps the array to change the occupation key to job and increment every age by 1
+function changeOccToJobAndIncrementAgeByOne(arr){
+    arr.forEach((arr) => {
+        arr[i] = arr.map(function (obj){
+            obj['job'] = obj['occupation']; // Create job key equal to occupation key
+            delete obj['occupation']; // Delete older occupation key
+
+            obj['age'] += 1;
+        });
+    });
+    return;
+}
+
+let obj1 = { 
+    id: "42",
+    name: "Bruce",
+    occupation: "Knight",
+    age: "41"
+};
+
+let obj2 = { 
+    id: "48",
+    name: "Barry",
+    occupation: "Runner",
+    age: "25"
+};
+
+let obj3 = { 
+    id: "57",
+    name: "Bob",
+    occupation: "Fry Cook",
+    age: "19"
+};
+
+let obj4 = { 
+    id: "63",
+    name: "Blaine",
+    occupation: "Quiz Master",
+    age: "58"
+};
+
+let obj5 = {
+    id: "7",
+    name: "Bilbo",
+    occupation: "None",
+    age: "111"
+};
+
+let objArr = [obj1, obj2, obj3, obj4, obj5];
 
 
 
@@ -127,3 +198,9 @@ console.log(reverseString5("!dlroW olleH"));
 // console.log(arrLongestString(strArr, 3));
 
 // console.log(recursionCounting(10))
+
+// console.log(sortAge(objArr)); - Test for sortAge()
+
+// console.log(over50(objArr)); - Test for over50()
+changeOccToJobAndIncrementAgeByOne(objArr)
+console.log(objArr);
