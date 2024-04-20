@@ -89,7 +89,7 @@ function arrLongestString(arr, minLength){
     for (let i = 0; i < arr.length; i++){
         current = arr[i];
         currentLength = arr[i].length;
-        if (currentLength >= minLength){ // if current length greater than minLength, push current into arrMinLength
+        if (currentLength > minLength){ // if current length greater than minLength, push current into arrMinLength
             arrMinLength.push(current);
         }
     }
@@ -99,7 +99,7 @@ function arrLongestString(arr, minLength){
 // e) Function that takes a number, n, and print every number between 1 and n without using loops. Use recursion.
 function recursionCounting(n){
     let nums = "";
-    if (n > 0){
+    if (n > 1){
         recursionCounting(n - 1);
     }
     nums += n + " ";
@@ -131,11 +131,17 @@ function over50(arr){
 // c) Function that maps the array to change the occupation key to job and increment every age by 1
 function changeOccToJobAndIncrementAgeByOne(arr){
     arr.forEach((n, i) => {
-        arr[i].job = arr[i].occupation;
-        delete arr[i].occupation;
-        arr[i].age += 1;
+        arr[i].job = arr[i].occupation; // New 'job' key holds 'occupation' values
+        delete arr[i].occupation; // Delete old 'occupation'
+        arr[i].age++; // Increment ages by 1
     });
     return;
+}
+
+// d) Function that adds up the ages, and then averages them
+function avgAge(arr) {
+    let totalAge = arr.reduce((a, b) => ({age: a.age + b.age})) // Reduce method to get sum of ages
+    return Object.values(totalAge) / arr.length; // Get value of totalAge, it holds age key, and divide by num of objects
 }
 
 let obj1 = { 
@@ -193,12 +199,16 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 // console.log(longestString(strArr));
 
 // console.log(arrLongestString(strArr, 3));
+// console.log(arrLongestString(strArr, 2));
 
-// console.log(recursionCounting(10))
+
+console.log(recursionCounting(10))
 
 // console.log(sortAge(objArr)); - Test for sortAge()
 
 // console.log(over50(objArr)); - Test for over50()
 
-changeOccToJobAndIncrementAgeByOne(objArr);
-console.log(objArr);
+// changeOccToJobAndIncrementAgeByOne(objArr);
+// console.log(objArr);
+
+console.log(avgAge(objArr));
