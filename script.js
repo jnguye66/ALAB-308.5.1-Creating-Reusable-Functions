@@ -130,13 +130,10 @@ function over50(arr){
 
 // c) Function that maps the array to change the occupation key to job and increment every age by 1
 function changeOccToJobAndIncrementAgeByOne(arr){
-    arr.forEach((arr) => {
-        arr[i] = arr.map(function (obj){
-            obj['job'] = obj['occupation']; // Create job key equal to occupation key
-            delete obj['occupation']; // Delete older occupation key
-
-            obj['age'] += 1;
-        });
+    arr.forEach((n, i) => {
+        arr[i].job = arr[i].occupation;
+        delete arr[i].occupation;
+        arr[i].age += 1;
     });
     return;
 }
@@ -145,35 +142,35 @@ let obj1 = {
     id: "42",
     name: "Bruce",
     occupation: "Knight",
-    age: "41"
+    age: 41
 };
 
 let obj2 = { 
     id: "48",
     name: "Barry",
     occupation: "Runner",
-    age: "25"
+    age: 25
 };
 
 let obj3 = { 
     id: "57",
     name: "Bob",
     occupation: "Fry Cook",
-    age: "19"
+    age: 19
 };
 
 let obj4 = { 
     id: "63",
     name: "Blaine",
     occupation: "Quiz Master",
-    age: "58"
+    age: 58
 };
 
 let obj5 = {
     id: "7",
     name: "Bilbo",
     occupation: "None",
-    age: "111"
+    age: 111
 };
 
 let objArr = [obj1, obj2, obj3, obj4, obj5];
@@ -202,5 +199,6 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 // console.log(sortAge(objArr)); - Test for sortAge()
 
 // console.log(over50(objArr)); - Test for over50()
-changeOccToJobAndIncrementAgeByOne(objArr)
+
+changeOccToJobAndIncrementAgeByOne(objArr);
 console.log(objArr);
