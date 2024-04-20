@@ -113,7 +113,6 @@ function recursionCounting(n){
 // a) Function that sorts age from youngest to oldest
 function sortAge(arr) { 
     sortedArr = arr.sort((a, b) => a.age - b.age);
-
     return sortedArr;
 }
 
@@ -143,6 +142,16 @@ function avgAge(arr) {
     let totalAge = arr.reduce((a, b) => ({age: a.age + b.age})) // Reduce method to get sum of ages
     return Object.values(totalAge) / arr.length; // Get value of totalAge, it holds age key, and divide by num of objects
 }
+
+//////////////////////////////////////////////////////////////////////////
+// Part 3: Thinking Critically
+
+// a) Function that takes an object and increments it's age field
+function incAge(obj){
+    return obj.age += 1;
+}
+
+
 
 let obj1 = { 
     id: "42",
@@ -183,9 +192,14 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 
 
 
+
 /**
  * Testing Functions
  */
+
+// let objTest = {
+//     age: 20
+// }
 
 // let numArr = [1,2,3,4];
 
@@ -201,14 +215,15 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 // console.log(arrLongestString(strArr, 3));
 // console.log(arrLongestString(strArr, 2));
 
-
-console.log(recursionCounting(10))
+// console.log(recursionCounting(10)) - Test for recursionCounting()
 
 // console.log(sortAge(objArr)); - Test for sortAge()
 
 // console.log(over50(objArr)); - Test for over50()
 
-// changeOccToJobAndIncrementAgeByOne(objArr);
+// changeOccToJobAndIncrementAgeByOne(objArr); - Test for changeOccToJobAndIncrementAgeByOne()
 // console.log(objArr);
 
-console.log(avgAge(objArr));
+// console.log(avgAge(objArr)); - Test for avgAge()
+
+// console.log(incAge(objTest)); - Test for incAge()
