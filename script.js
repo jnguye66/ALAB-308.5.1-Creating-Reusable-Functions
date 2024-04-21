@@ -148,9 +148,37 @@ function avgAge(arr) {
 
 // a) Function that takes an object and increments it's age field
 function incAge(obj){
+    if (!('age' in obj)){ // if age is not a key of obj
+        obj.age = 0;
+        return;
+    }
+
+    let currentDate = new Date(); // Variable containing current time/date
+
+    obj.updated_at = { // Creating new key 'updated_at' that holds current date 
+        Date: currentDate
+    }
+
     return obj.age += 1;
 }
 
+// b) Function that takes an object, makes a copy, increments the age of copy, and returns copy
+function incCopyAge(obj){
+    if (!('age' in obj)){ // if age is not a key of obj
+        obj.age = 0;
+        return;
+    }
+
+    let currentDate = new Date(); // Variable containing current time/date
+
+    obj.updated_at = { // Creating new key 'updated_at' that holds current date 
+        Date: currentDate
+    }
+
+    let newObj = obj
+    newObj.age += 1;
+    return newObj;
+}
 
 
 let obj1 = { 
@@ -190,16 +218,13 @@ let obj5 = {
 
 let objArr = [obj1, obj2, obj3, obj4, obj5];
 
-
-
-
 /**
  * Testing Functions
  */
 
-// let objTest = {
-//     age: 20
-// }
+let objTest = {
+    age: 20
+}
 
 // let numArr = [1,2,3,4];
 
@@ -217,7 +242,7 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 
 // console.log(recursionCounting(10)) - Test for recursionCounting()
 
-// console.log(sortAge(objArr)); - Test for sortAge()
+// console.log(sortAge(objArr)); //- Test for sortAge()
 
 // console.log(over50(objArr)); - Test for over50()
 
@@ -226,4 +251,6 @@ let objArr = [obj1, obj2, obj3, obj4, obj5];
 
 // console.log(avgAge(objArr)); - Test for avgAge()
 
-// console.log(incAge(objTest)); - Test for incAge()
+console.log(incAge(objTest)); // - Test for incAge()
+
+console.log(incCopyAge(objTest)); // - Test for incCopyAge()
