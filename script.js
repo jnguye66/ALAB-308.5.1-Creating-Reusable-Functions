@@ -226,7 +226,7 @@ let objTest = {
     age: 20
 }
 
-// let numArr = [1,2,3,4];
+let numArr = [1,2,3,4];
 
 // console.log(sum(numArr)); // 10
 // console.log(avg(numArr)); // 10 / 4 = 2.5
@@ -251,6 +251,6 @@ let objTest = {
 
 // console.log(avgAge(objArr)); - Test for avgAge()
 
-console.log(incAge(objTest)); // - Test for incAge()
+// console.log(incAge(objTest)); // - Test for incAge()
 
-console.log(incCopyAge(objTest)); // - Test for incCopyAge()
+// console.log(incCopyAge(objTest)); // - Test for incCopyAge()
